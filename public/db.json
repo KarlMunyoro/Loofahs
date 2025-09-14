@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Natural Loofah",
+      "price": "250",
+      "image": "/1-Bundle.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Exfoliating Sponge",
+      "price": "1400",
+      "image": "/6-Bundle.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "Set of 7",
+      "price": "1500",
+      "image": "/7-Loofahs.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "Natural Loofah",
+      "price": "250",
+      "image": "/Loofahs-Nature.JPG"
+    }
+  ]
+}
