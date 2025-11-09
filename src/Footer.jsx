@@ -60,6 +60,14 @@ function Footer() {
           <FaMapMarkerAlt />
           <span>Yaya Center, Kenya</span>
         </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <FaMapMarkerAlt />
+          <span>Nanyuki Cedar Mall, Kenya</span>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <FaMapMarkerAlt />
+          <span>Nakuru Westside Mall, Kenya</span>
+        </div>
       </div>
 
       {/* Socials */}
