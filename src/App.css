@@ -204,3 +204,8 @@ body {
   background-color: #3a6d1c;
   transform: scale(1.03);
 }
+
+#about, .item-grid, #WhatsAppForm, #loofah-images {
+  max-width: 100%;
+  box-sizing: border-box; /* include padding in width */
+}
