@@ -3,6 +3,7 @@ import {
   FaFacebook,
   FaEnvelope,
   FaMapMarkerAlt,
+  FaLinkedin,
 } from "react-icons/fa";
 
 function Footer() {
@@ -85,7 +86,7 @@ function Footer() {
           <FaInstagram />
         </a>
         <a
-          href="https://www.facebook.com/turisloofahs"
+          href="https://www.linkedin.com/company/190443102"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -94,7 +95,7 @@ function Footer() {
             transition: "transform 0.2s, color 0.2s",
           }}
         >
-          <FaFacebook />
+          <FaLinkedin />
         </a>
       </div>
 
