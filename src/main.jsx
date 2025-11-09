@@ -6,20 +6,16 @@ import Home from './Home.jsx'
 import App from './App.jsx'
 import Logo  from './Logo.jsx'
 import ItemList from './ItemList.jsx'
+import WhatsAppForm from './WhatsAppForm.jsx'
+import Footer from './Footer.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <NavBar />
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
     <Logo />
     <Home />
-    <ItemList />
+    {/* <ItemList /> */}
+    <WhatsAppForm/>
+    <Footer/>
   </StrictMode>,
 )

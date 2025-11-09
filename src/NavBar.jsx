@@ -6,7 +6,7 @@ function NavBar(){
         <nav id="NavBar">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#Products">Products</a>
+        <a href="#WhatsAppForm">Contacts</a>
         </nav>
     )
 }

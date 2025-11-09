@@ -1,182 +1,206 @@
-/* -------------------------
-   Basic reset + variables
-   ------------------------- */
-*,
-*::before,
-*::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root{
-  --max-width: 1280px;           /* page max width */
-  --page-pad: 1rem;              /* root horizontal padding */
-  --nav-height: 64px;            /* navbar height (affects body padding) */
-  --nav-bg: #222;                /* navbar background */
-  --accent-start: #ffffff;       /* page background gradient start */
-  --accent-end: #ffc0cb;         /* page background gradient end */
-  --card-min-w: 220px;          /* MINIMUM width for each card (affects grid min-width) */
-  --card-gap: 1rem;
-}
-
-/* -------------------------
-   Page background & root
-   ------------------------- */
-html, body {
-  height: 100%;
-  background: linear-gradient(to left, var(--accent-start), var(--accent-end));
-  background-attachment: fixed;   /* keeps gradient covering while scrolling */
-  background-size: cover;
-}
-
+/* Ensure body can scroll but doesn’t zoom in */
+html,
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  color: #111;
-  line-height: 1.4;
-  /* Push content below fixed navbar: MUST match --nav-height */
-  padding-top: var(--nav-height); /* controls where content begins under fixed nav */
-}
-
-/* Page container */
-#root {
-  max-width: var(--max-width);   /* controls overall page width */
-  margin: 0 auto;
-  padding: 0 var(--page-pad);
-}
-
-/* -------------------------
-   NAVBAR (fixed top)
-   ------------------------- */
-/* These lines fix the navbar at top and control its size & position */
-#NavBar {
-  position: fixed;               /* keeps it at top while scrolling */
-  top: 0; left: 0; right: 0;
-  height: var(--nav-height);     /* controls navbar height */
-  background: var(--nav-bg);     /* navbar color */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;/* logo left, links right */
-  padding: 0 1rem;
-  z-index: 10000;                /* ensures navbar stays above everything */
-  gap: 0.5rem;
-}
-
-/* Container for nav links - prevents wrapping and enables horizontal scroll if needed */
-#NavBar .nav-links {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  white-space: nowrap;           /* prevents links from wrapping */
-  overflow-x: auto;             /* allows scrolling if too many links on small screens */
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Individual link sizing (font-size + padding affect spacing) */
-#NavBar a {
-  color: #fff;
-  text-decoration: none;
-  display: inline-block;
-  padding: 0.35rem 0.6rem; 
-  /* clamp() makes font-size shrink on small screens but not go too small */
-  font-size: clamp(0.85rem, 1.8vw, 1rem);
-  flex: 0 0 auto;                /* don't grow/shrink to wrap - keep natural size */
-}
-
-/* Hover / focus for accessibility */
-#NavBar a:hover, #NavBar a:focus { text-decoration: underline; outline: none; }
-
-/* -------------------------
-   LOGO (full width banner)
-   ------------------------- */
-/* These lines make the logo act like a banner that spans full width.
-   If your markup places <img id="LOGO"> below the <nav>, it will stretch.
-   If it's inside the nav, use #NavBar img#LOGO rule below. */
-#LOGO {
-  display: block;
-  width: 100%;               /* makes logo stretch full-screen width */
-  height: auto;              /* preserves aspect ratio */
-  object-fit: cover;         /* fill nicely if image is larger than container */
-  margin: 0;                 /* no extra spacing */
-}
-
-/* If your LOGO is inside the navbar as an <img>, this ensures it fits but still stretches:
-   If you want a banner, prefer putting <img id="LOGO"> after the <nav> in the DOM */
-#NavBar img#LOGO {
-  height: calc(var(--nav-height) - 12px);  /* small logo version if inside nav */
-  width: auto;
-  object-fit: contain;
-}
-
-/* -------------------------
-   Products grid: fixed 4 columns
-   ------------------------- */
-/* Wrap the grid in a horizontal-scroll container for mobile friendliness:
-   .grid-scroll allows users on small screens to scroll horizontally to see all 4 columns */
-.grid-scroll {
   width: 100%;
-  overflow-x: auto;               /* horizontal scroll on small screens */
-  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  align-items: space-evenly;
+  background-image: url("/green background color.png");
+  color: wheat;
+  font-size: large;
 }
 
-/* THIS is the core: always 4 columns.
-   min-width sets a practical minimum so columns don't shrink to unreadable sizes.
-   Combined with .grid-scroll, this keeps 4 columns while allowing horizontal scroll on small devices. */
-.item-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);   /* 4 equal columns (CONTROLS # of columns) */
-  gap: var(--card-gap);
-  align-items: start;
-  /* Force a minimum total width so each of the 4 columns keeps a decent width:
-     total min width = 4 * --card-min-w + gaps */
-  min-width: calc((var(--card-min-w) * 4) + (var(--card-gap) * 3)); /* controls min column width */
+#Seven-Loofahs {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%; /* optional, to control size */
+  border-radius: 20px;
 }
 
-/* Individual card sizing & centering (size controlled here) */
-.item-card {
+#Flower-Loofah {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%; /* optional, to control size */
+  border-radius: 20px;
+}
+
+#LoofahWoman {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%; /* optional, to control size */
+  border-radius: 20px;
+}
+
+#loofah-images {
+  display: flex; /* makes children align horizontally */
+  flex-wrap: wrap; /* allows images to move to next line if they overflow */
+  justify-content: center; /* center the images horizontally */
+  align-items: center;
+}
+
+#about {
+  background: rgba(22, 167, 216, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix the massive banner */
+#LOGO {
+  width: 100vw; /* fill device width */
+  max-width: 100%; /* never exceed container */
+  height: auto; /* height derives from width */
+  aspect-ratio: 16/5; /* adjust to your banner’s width:height ratio */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Your navbar */
+#NavBar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
-  flex-direction: column;
-  align-items: center;         /* centers image horizontally */
-  justify-content: flex-start;
-  padding: 1rem;               /* internal spacing */
-  min-height: 160px;           /* minimum card height (affects vertical size) */
-  background: #fff;
+  justify-content: center;
+  gap: 2rem;
+  background: rgba(16, 212, 16, 0.726); /* lightgreen with 60% opacity */
+  backdrop-filter: blur(10px); /* frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+#NavBar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#NavBar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Product grid */
+.item-grid {
+  width: 100%;
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.item-card {
+  background: white;
   border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-/* Image inside card - controls visual size */
 .item-image {
   width: 100%;
-  max-width: 140px;            /* maximum visible size of image inside card */
   height: auto;
-  object-fit: contain;
-  margin-bottom: 0.6rem;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 0.8rem;
+  max-width: 100%;
 }
 
-/* Title & price spacing */
-.item-card h3 { font-size: 1rem; margin: 0.25rem 0; }
-.item-card p  { margin: 0; color: #333; opacity: 0.9; }
-
-/* -------------------------
-   Small-screen tweaks (only for spacing / nav size; NOT grid columns)
-   ------------------------- */
-@media (max-width: 700px) {
-  /* Slightly reduce navbar height on small screens (affects body padding) */
-  :root { --nav-height: 56px; }
-
-  /* Reduce root padding so page uses screen width better */
-  #root { padding: 0 var(--page-pad); }
+.item-card h3 {
+  color: #2d5016;
+  margin-bottom: 0.5rem;
 }
 
-/* Avoid changing grid columns in media queries: grid stays 4 columns always.
-   The .grid-scroll wrapper provides horizontal scroll on small screens. */
+/* Mobile responsive */
+@media (max-width: 768px) {
+  #LOGO {
+    max-height: 20vh; /* Smaller on mobile */
+  }
 
-/* -------------------------
-   Helpful utility (center page content)
-   ------------------------- */
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
+  .item-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  #NavBar {
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+  }
+}
+/* WhatsApp Form */
+#WhatsAppForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto;
+  padding: 2rem;
+  width: 100%;
+  background-color: #f9fafb; /* light background for contrast */
+  border-radius: 12px;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Accessibility */
-a:focus-visible, button:focus-visible { outline: 3px solid rgba(0,120,212,0.18); outline-offset: 2px; }
+/* Heading */
+#WhatsAppForm h2 {
+  color: #2d5016;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+/* Form */
+#WhatsAppForm form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Input fields */
+#WhatsAppForm input {
+  width: 90%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: black;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#WhatsAppForm input:focus {
+  border-color: #2d5016;
+  outline: none;
+  box-shadow: 0 0 5px rgba(45, 80, 22, 0.3);
+}
+
+/* Button */
+#WhatsAppForm button {
+  background-color: #2d5016;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#WhatsAppForm button:hover {
+  background-color: #3a6d1c;
+  transform: scale(1.03);
+}
